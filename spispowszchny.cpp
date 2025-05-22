@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <map>
 #include <string>
@@ -16,25 +17,21 @@ int main()
 
         nazwisko[name]++;
     }
-
+    
     int num = 1;
-    map<string, int> max_nazw;
-
-    for(auto name : nazwisko) {
-        if(name.second > num) {
-            num++;
-            max_nazw.insert(name);
+    for(auto el : nazwisko) {
+        if(el.second > num) {
+            num = el.second;
         }
     }
 
-    cout << num << endl;
-    for(auto name : max_nazw) {
+    cout << endl << num << endl;
+    for(auto name : nazwisko) {
         if(name.second == num) {
             cout << name.first << endl;
         }
-        else if (name.second != num) {
-            max_nazw.erase(name.first);
-        }
     }
+    
+    
    return 0; 
 }
